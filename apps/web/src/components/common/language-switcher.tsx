@@ -1,13 +1,14 @@
 'use client'
 
 import { useState } from 'react'
-import { useTolgee } from '@tolgee/react'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
-import { changeLanguage } from '@/features/change-language.action'
 import { AppLanguages } from '@/types/app-config'
+import { useTolgee, useTranslate } from '@tolgee/react'
+import { changeLanguage } from '@/features/change-language.action'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
 
 export const LanguageSwitcher = () => {
   const tolgee = useTolgee()
+  const { t } = useTranslate()
   const [locale, setLocale] = useState(tolgee.getLanguage())
 
   const handleChange = async (value: AppLanguages) => {
@@ -22,8 +23,9 @@ export const LanguageSwitcher = () => {
         <SelectValue placeholder="Theme" />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="en">English</SelectItem>
-        <SelectItem value="ar">العربية</SelectItem>
+        <SelectItem value="en">{t('@t<english>')} (English)</SelectItem>
+        <SelectItem value="ar">{t('@t<arabic>')} (العربية)</SelectItem>
+        <SelectItem value="tr">{t('@t<turkish>')} (Türkçe)</SelectItem>
       </SelectContent>
     </Select>
   )
