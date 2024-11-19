@@ -1,12 +1,5 @@
 {
   "name": "templates-nexst",
-  "private": true,
-  "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
-  },
   "devDependencies": {
     "prettier": "^3.2.5",
     "turbo": "^2.3.0",
@@ -16,8 +9,18 @@
     "node": ">=18"
   },
   "packageManager": "bun@1.1.27",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "framer-motion": "12.0.0-alpha.1"
+  }
 }
