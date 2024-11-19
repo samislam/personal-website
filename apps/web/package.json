@@ -16,6 +16,7 @@
     "locales:push": "bunx tolgee push"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.1",
     "@mdi/js": "^7.4.47",
     "@mdi/react": "^1.6.1",
     "@radix-ui/react-select": "^2.1.2",
@@ -31,6 +32,7 @@
     "next-themes": "^0.4.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
+    "react-hook-form": "^7.53.2",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
     "tailwindest": "^2.3.6"
