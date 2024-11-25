@@ -1,5 +1,5 @@
 {
-  "name": "templates-nexst",
+  "name": "nexst",
   "devDependencies": {
     "prettier": "^3.2.5",
     "turbo": "^2.3.0",
@@ -19,8 +19,5 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ],
-  "dependencies": {
-    "framer-motion": "12.0.0-alpha.1"
-  }
+  ]
 }
