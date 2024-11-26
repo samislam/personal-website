@@ -3,7 +3,8 @@
 import Link from 'next/link'
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/button'
+import { pageDefs } from '@/config/pages.config'
+import { Button, buttonVariants } from '@/components/ui/button'
 
 export default function Error({
   error,
@@ -58,14 +59,19 @@ export default function Error({
           <p className="text-md mb-6 text-gray-500">
             {error.message || 'An unexpected error occurred'}
           </p>
-          <div className="mt-5 space-y-4">
+          <div className="mt-5 space-y-3">
             <Button onClick={reset} size="lg" className="w-full font-semibold">
               Try Again
             </Button>
-            <Link href="/" passHref>
-              <Button variant="outline" size="lg" className="w-full font-semibold">
-                Return Home
-              </Button>
+            <Link
+              href={pageDefs.home.href}
+              className={buttonVariants({
+                size: 'lg',
+                variant: 'outline',
+                className: 'w-full font-semibold',
+              })}
+            >
+              Return Home
             </Link>
           </div>
         </motion.div>
