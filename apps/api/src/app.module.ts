@@ -15,10 +15,11 @@ import { RequestPreviewMiddleware } from './middlewares/request-preview.middlewa
       validationSchema: environmentSchema,
       envFilePath: `.env.${process.env.NODE_ENV}`,
     }),
-    TypeOrmModule.forRootAsync({
-      inject: [ConfigService],
-      useFactory: (config: ConfigService<EnvironmentVars>) => config.getOrThrow('_TYPEORM_ENV'),
-    }),
+    // ? uncomment the following lines to enable database integration automatically
+    // TypeOrmModule.forRootAsync({
+    //   inject: [ConfigService],
+    //   useFactory: (config: ConfigService<EnvironmentVars>) => config.getOrThrow('_TYPEORM_ENV'),
+    // }),
   ],
   controllers: [],
   providers: [],
