@@ -4,7 +4,8 @@ import { EnvironmentVars } from './types/environment-vars'
 import environmentSchema from '@/server/environment-schema'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common'
-import { ReqPreviewMiddleware } from './middlewares/req-preview.middleware'
+import { RequestUserMiddleware } from './middlewares/request-user.middleware'
+import { RequestPreviewMiddleware } from './middlewares/request-preview.middleware'
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { ReqPreviewMiddleware } from './middlewares/req-preview.middleware'
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(ReqPreviewMiddleware).forRoutes('*')
+    consumer.apply(RequestPreviewMiddleware).forRoutes('*')
+    consumer.apply(RequestUserMiddleware).forRoutes('*')
   }
 }
