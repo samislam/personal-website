@@ -24,6 +24,9 @@ const loadData = (filePath: string): any => {
   }
 }
 
+// ensure the data directory exists
+fs.mkdirSync(dataDir, { recursive: true })
+
 // Read each file in the data directory
 fs.readdirSync(dataDir).forEach((file: string) => {
   if (file.endsWith('.json5')) {
