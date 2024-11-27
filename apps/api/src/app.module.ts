@@ -1,5 +1,6 @@
 import typeorm from './server/typeorm'
 import { TypeOrmModule } from '@nestjs/typeorm'
+import { AuthModule } from './modules/auth/auth.module'
 import { EnvironmentVars } from './types/environment-vars'
 import environmentSchema from '@/server/environment-schema'
 import { ConfigModule, ConfigService } from '@nestjs/config'
@@ -15,6 +16,7 @@ import { RequestPreviewMiddleware } from './middlewares/request-preview.middlewa
       validationSchema: environmentSchema,
       envFilePath: `.env.${process.env.NODE_ENV}`,
     }),
+    AuthModule,
     // ? uncomment the following lines to enable database integration automatically
     // TypeOrmModule.forRootAsync({
     //   inject: [ConfigService],
