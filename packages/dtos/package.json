@@ -1,17 +1,16 @@
 {
   "name": "@repo/dtos",
-  "module": "./.dist/index.js",
+  "module": "./dist/index.js",
   "type": "module",
-  "types": "./.dist/dts/index.d.ts",
+  "types": "./dist/dts/index.d.ts",
   "scripts": {
-    "dev": "concurrently --names \"bun,tspc\" \"bun build ./src/index.ts --outdir ./.dist/ --watch\" \"tspc --emitDeclarationOnly --watch\"",
-    "build": "bun build ./src/index.ts --outdir ./.dist/ && tspc",
+    "dev": "concurrently --names \"bun,tspc\" \"bun build ./src/index.ts --outdir ./dist/ --watch\" \"tspc --emitDeclarationOnly --watch\"",
+    "build": "bun build ./src/index.ts --outdir ./dist/ && tspc",
     "format": "prettier --write \"**/*.{ts,tsx,md,js}\""
   },
   "prettier": "@samislam/prettier-config",
   "devDependencies": {
     "@samislam/prettier-config": "^1.1.1",
-    "@types/bun": "latest",
     "concurrently": "^9.1.0",
     "ts-patch": "^3.2.1",
     "typescript-transform-paths": "^3.5.2"

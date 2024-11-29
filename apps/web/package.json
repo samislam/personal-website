@@ -9,11 +9,11 @@
     "start": "next start",
     "format": "prettier --write \"./**/*.{htm,html,css,md,mdx,js,jsx,ts,tsx}\"",
     "lint": "next lint",
-    "locales:sync": "bunx tolgee sync",
-    "locales:print": "bunx tolgee extract print",
-    "locales:compare": "bunx tolgee compare",
-    "locales:pull": "bunx tolgee pull",
-    "locales:push": "bunx tolgee push"
+    "locales:sync": "tolgee sync",
+    "locales:print": "tolgee extract print",
+    "locales:compare": "tolgee compare",
+    "locales:pull": "tolgee pull",
+    "locales:push": "tolgee push"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
