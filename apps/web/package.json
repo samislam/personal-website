@@ -13,7 +13,8 @@
     "locales:print": "tolgee extract print",
     "locales:compare": "tolgee compare",
     "locales:pull": "tolgee pull",
-    "locales:push": "tolgee push"
+    "locales:push": "tolgee push",
+    "clean": "del \"**/{node_modules,.next,.turbo}\""
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -47,6 +48,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "del-cli": "^6.0.0",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "postcss": "^8",
