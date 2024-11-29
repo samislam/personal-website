@@ -1,22 +1,17 @@
 {
   "compilerOptions": {
     // Enable latest features
-    "lib": ["ESNext"],
-    "target": "ESNext",
-    "module": "ESNext",
+    "target": "ES2021",
+    "module": "CommonJS",
     "moduleDetection": "force",
-
-    // Bundler mode
-    "moduleResolution": "bundler",
-    "verbatimModuleSyntax": true,
 
     // input
     "rootDir": "./src",
     // output
-    "outDir": "./.dist",
+    "outDir": "./dist",
     "declaration": true,
-    "declarationDir": "./.dist/dts",
-    "emitDeclarationOnly": true,
+    "declarationDir": "./dist/dts",
+    "sourceMap": true,
 
     // decorators
     "emitDecoratorMetadata": true,
