@@ -310,6 +310,13 @@ importers:
         version: 5.7.2
 
   packages/common:
+    dependencies:
+      class-transformer:
+        specifier: ^0.5.1
+        version: 0.5.1
+      class-validator:
+        specifier: ^0.14.1
+        version: 0.14.1
     devDependencies:
       '@repo/typescript-config':
         specifier: workspace:^
@@ -332,6 +339,12 @@ importers:
       ts-jest:
         specifier: ^29.1.0
         version: 29.2.5(@babel/core@7.26.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.26.0))(jest@29.7.0(@types/node@22.10.1)(ts-node@10.9.2(@types/node@22.10.1)(typescript@5.7.2)))(typescript@5.7.2)
+      ts-patch:
+        specifier: ^3.2.1
+        version: 3.3.0
+      tsconfig-paths:
+        specifier: ^4.2.0
+        version: 4.2.0
       typescript-transform-paths:
         specifier: ^3.5.2
         version: 3.5.2(typescript@5.7.2)
@@ -366,6 +379,15 @@ importers:
       ts-jest:
         specifier: ^29.1.0
         version: 29.2.5(@babel/core@7.26.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.26.0))(jest@29.7.0(@types/node@22.10.1)(ts-node@10.9.2(@types/node@22.10.1)(typescript@5.7.2)))(typescript@5.7.2)
+      ts-patch:
+        specifier: ^3.2.1
+        version: 3.3.0
+      tsconfig-paths:
+        specifier: ^4.2.0
+        version: 4.2.0
+      typescript:
+        specifier: ^5.7.2
+        version: 5.7.2
       typescript-transform-paths:
         specifier: ^3.5.2
         version: 3.5.2(typescript@5.7.2)
