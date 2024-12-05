@@ -1,0 +1,16 @@
+{
+  "name": "@repo/typescript-config",
+  "version": "1.0.0",
+  "description": "The extendable Monorepo's TypeScript shared base configuration files",
+  "author": "Islam Yamor",
+  "license": "ISC",
+  "scripts": {
+    "format": "prettier --write \"./*.json\""
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "prettier": "^3.4.2"
+  }
+}
