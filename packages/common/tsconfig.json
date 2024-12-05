@@ -2,9 +2,6 @@
   "extends": "@repo/typescript-config/package.tsconfig.json",
   "compilerOptions": {
     "types": ["jest"],
-    "rootDir": "./",
-    "outDir": "./dist",
-    "declarationDir": "./dist/dts",
     "paths": {
       "@/*": ["./src/*"]
     },

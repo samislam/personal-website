@@ -1,21 +1,16 @@
-// import { initContract } from '@ts-rest/core'
+import { ExampleDto } from '@repo/dtos'
+import { initContract } from '@ts-rest/core'
 
-// export const contract = initContract().router({
-//   createEvent: {
-//     method: 'POST',
-//     path: '/events',
-//     responses: {
-//       201: CreateEventSchema,
-//     },
-//     body: CreateEventSchema,
-//     summary: 'Create a post',
-//   },
-//   getPost: {
-//     method: 'GET',
-//     path: `/posts/:id`,
-//     responses: {
-//       200: CreateEventSchema.nullable(),
-//     },
-//     summary: 'Get a post by id',
-//   },
-// })
+const c = initContract()
+
+export const contract = c.router({
+  exampleAction: {
+    method: 'POST',
+    path: '/example',
+    responses: {
+      201: c.type<{ message: string }>(),
+    },
+    body: c.type<ExampleDto>(),
+    summary: 'Create a post',
+  },
+})
