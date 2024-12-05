@@ -11,7 +11,6 @@
     "format": "prettier --write \"**/*.{ts,tsx,md,js}\"",
     "clean": "del \"**/{node_modules,dist,.turbo}\""
   },
-  "keywords": [],
   "author": "Islam Yamor",
   "license": "ISC",
   "devDependencies": {
@@ -21,7 +20,7 @@
     "@types/node": "^22.10.1",
     "jest": "^29.7.0",
     "prettier": "^3.4.2",
-    "ts-jest": "^29.1.0",
+    "ts-jest": "^29.2.5",
     "ts-patch": "^3.2.1",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.7.2",

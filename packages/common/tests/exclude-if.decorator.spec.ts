@@ -1,4 +1,4 @@
-import { ExcludeIf } from '@/utils/exclude-if.decorator'
+import { ExcludeIf } from '@/exclude-if.decorator'
 import { Contains, IsString, validate } from 'class-validator'
 import { instanceToPlain, plainToInstance } from 'class-transformer'
 import { IsNotEmpty, IsBoolean, MaxLength, MinLength } from 'class-validator'

@@ -1,6 +1,6 @@
+import { MaxDigits } from '@/max-digits.decorator'
 import { plainToInstance } from 'class-transformer'
 import { IsNumber, validate } from 'class-validator'
-import { MaxDigits } from '@/utils/max-digits.decorator'
 
 describe('@MaxDigits() decorator', () => {
   class TestDto {

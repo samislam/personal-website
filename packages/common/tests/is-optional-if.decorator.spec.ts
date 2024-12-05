@@ -1,5 +1,5 @@
 import { plainToInstance } from 'class-transformer'
-import { IsOptionalIf } from '@/utils/is-optional-if.decorator'
+import { IsOptionalIf } from '@/is-optional-if.decorator'
 import { IsBoolean, IsString, Length, validate } from 'class-validator'
 
 describe('@IsOptionalIf() decorator', () => {

@@ -33,6 +33,10 @@
     },
     "start": {
       "persistent": true
+    },
+    "test": {
+      "dependsOn": ["^test"],
+      "cache": false
     }
   }
 }
