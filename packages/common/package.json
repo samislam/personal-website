@@ -4,7 +4,6 @@
   "description": "",
   "version": "1.0.0",
   "types": "./dist/index.d.ts",
-  "prettier": "@samislam/prettier-config",
   "scripts": {
     "dev": "pnpm barrel && concurrently -k --names \"BARRELS,TS\" --prefix-colors \"blue,green\" \"chokidar 'src/**/*.ts' -i 'src/index.ts' -i 'src/**/index.ts' -c 'pnpm barrel'\" \"tspc -p ./tsconfig.app.json --watch\"",
     "build": "pnpm barrel && tspc -p ./tsconfig.app.json",
@@ -33,6 +32,7 @@
   },
   "dependencies": {
     "class-transformer": "^0.5.1",
-    "class-validator": "^0.14.1"
+    "class-validator": "^0.14.1",
+    "typeorm": "^0.3.20"
   }
 }

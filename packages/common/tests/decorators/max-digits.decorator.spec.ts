@@ -1,4 +1,4 @@
-import { MaxDigits } from '@/max-digits.decorator'
+import { MaxDigits } from '@/decorators/max-digits.decorator'
 import { plainToInstance } from 'class-transformer'
 import { IsNumber, validate } from 'class-validator'
 
