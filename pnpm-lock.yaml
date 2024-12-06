@@ -361,6 +361,9 @@ importers:
 
   packages/contract:
     dependencies:
+      '@repo/common':
+        specifier: workspace:^
+        version: link:../common
       '@repo/dtos':
         specifier: workspace:^
         version: link:../dtos
