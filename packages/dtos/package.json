@@ -3,6 +3,7 @@
   "private": true,
   "description": "",
   "version": "1.0.0",
+  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "prettier": "@samislam/prettier-config",
   "scripts": {
@@ -27,11 +28,7 @@
     "ts-jest": "^29.2.5",
     "ts-patch": "^3.2.1",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.7.2",
     "typescript-transform-paths": "^3.5.2"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
   },
   "dependencies": {
     "@repo/common": "workspace:^",
