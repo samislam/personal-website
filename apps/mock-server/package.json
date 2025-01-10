@@ -1,5 +1,5 @@
 {
-  "name": "mock-server",
+  "name": "mock-server.nexst",
   "type": "module",
   "prettier": "@samislam/prettier-config",
   "scripts": {

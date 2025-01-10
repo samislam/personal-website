@@ -1,15 +1,15 @@
 {
-  "name": "web.nexst",
+  "name": "website.nexst",
   "version": "0.1.0",
   "private": true,
   "prettier": "@samislam/prettier-config/next",
   "scripts": {
-    "dev": "dotenv -e .env.development next dev --turbopack",
-    "build": "dotenv -e .env.production next build",
-    "start": "dotenv -e .env.production next start",
+    "dev": "dotenv -e .env.development -- next dev --turbopack",
+    "build": "dotenv -e .env.production -- next build",
+    "start": "dotenv -e .env.production -- next start",
     "format": "prettier --write \"./**/*.{htm,html,css,md,mdx,js,jsx,ts,tsx}\"",
     "lint": "next lint",
-    "tolgee": "dotenv -e .env.development tolgee",
+    "tolgee": "dotenv -e .env.development -- tolgee",
     "locales:sync": "pnpm tolgee sync",
     "locales:print": "pnpm tolgee extract print",
     "locales:compare": "pnpm tolgee compare",
@@ -37,6 +37,7 @@
     "framer-motion": "^11.11.17",
     "lucide-react": "^0.460.0",
     "next": "15.0.3",
+    "next-intl": "^3.25.3",
     "next-themes": "^0.4.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
@@ -58,7 +59,6 @@
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "postcss": "^8",
-    "prettier": "^3.4.2",
     "tailwindcss": "^3.4.1"
   }
 }
