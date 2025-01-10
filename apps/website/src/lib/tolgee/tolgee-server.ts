@@ -1,7 +1,7 @@
 import { cache } from 'react'
+import appConfig from '@/config/app.config'
 import { getLocale } from 'next-intl/server'
 import { TolgeeBase, ALL_LOCALES, getStaticData } from './tolgee-shared'
-import appConfig from '@/config/app.config'
 
 // wrapping in `cache` function will ensure
 // that we are sharing the instance within a single request
