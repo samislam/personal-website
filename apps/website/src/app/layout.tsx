@@ -9,6 +9,7 @@ import { AppLanguages } from '@/types/app-config'
 import { getTranslate } from '@/lib/tolgee/tolgee-server'
 import { getStaticData } from '@/lib/tolgee/tolgee-shared'
 import { TolgeeNextProvider } from '@/lib/tolgee/tolgee-client'
+import { NextIntlClientProvider } from 'next-intl'
 
 interface Props extends PropsWithChildren {
   params: Promise<{ locale: string }>
@@ -19,20 +20,22 @@ export default async function RootLayout(props: Props) {
   const locale = (await getLocale()) as AppLanguages
   const locales = await getStaticData([appConfig.defaultLanguage, locale])
   return (
-    <TolgeeNextProvider locale={locale} locales={locales}>
-      <html suppressHydrationWarning>
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <ThemeProvider
-            attribute="class"
-            enableSystem
-            disableTransitionOnChange
-            defaultTheme={appConfig.defaultTheme}
-          >
-            {children}
-          </ThemeProvider>
-        </body>
-      </html>
-    </TolgeeNextProvider>
+    <NextIntlClientProvider>
+      <TolgeeNextProvider locale={locale} locales={locales}>
+        <html lang={locale} suppressHydrationWarning>
+          <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+            <ThemeProvider
+              attribute="class"
+              enableSystem
+              disableTransitionOnChange
+              defaultTheme={appConfig.defaultTheme}
+            >
+              {children}
+            </ThemeProvider>
+          </body>
+        </html>
+      </TolgeeNextProvider>
+    </NextIntlClientProvider>
   )
 }
 
