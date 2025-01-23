@@ -17,7 +17,7 @@ interface Props extends PropsWithChildren {
 export default async function RootLayout(props: Props) {
   const { children } = props
   const locale = (await getLocale()) as AppLanguages
-  const locales = await getStaticData(['en', locale])
+  const locales = await getStaticData([appConfig.defaultLanguage, locale])
   return (
     <TolgeeNextProvider locale={locale} locales={locales}>
       <html suppressHydrationWarning>
