@@ -10,7 +10,7 @@ const TOLGEE_PROJECT_ID = () => process.env.TOLGEE_PROJECT_ID
 const TOLGEE_API_URL = () => process.env.NEXT_PUBLIC_TOLGEE_API_URL
 const TOLGEE_API_KEY = () => process.env.NEXT_PUBLIC_TOLGEE_API_KEY
 
-const loadEnvVariables = (envPath = '.env.development') => {
+const loadEnvVariables = (envPath = '.env.local') => {
   // Load environment variables if they are not already set.
   if (!TOLGEE_PROJECT_ID() || !TOLGEE_API_URL() || !TOLGEE_API_KEY()) {
     dotenv.config({ path: envPath })
@@ -23,7 +23,7 @@ const checkRequiredEnvVariables = () => {
     console.error(
       concat(
         'TOLGEE_PROJECT_ID was not found in the environment variables.',
-        'Please add it to your .env.development file or include it in your command and try again.'
+        'Please add it to your .env.local file or include it in your command and try again.'
       )
     )
     process.exit(1)
@@ -33,7 +33,7 @@ const checkRequiredEnvVariables = () => {
     console.error(
       concat(
         'TOLGEE_API_URL was not found in the environment variables.',
-        'Please add it to your .env.development file or include it in your command and try again.'
+        'Please add it to your .env.local file or include it in your command and try again.'
       )
     )
     process.exit(1)
@@ -43,7 +43,7 @@ const checkRequiredEnvVariables = () => {
     console.error(
       concat(
         'TOLGEE_API_KEY was not found in the environment variables.',
-        'Please add it to your .env.development file or include it in your command and try again.'
+        'Please add it to your .env.local file or include it in your command and try again.'
       )
     )
     process.exit(1)
@@ -66,6 +66,7 @@ checkRequiredEnvVariables()
 export default {
   $schema: 'https://tolgee.io/cli-schema.json',
   apiUrl: TOLGEE_API_URL(),
+  apiKey: TOLGEE_API_KEY(),
   format: 'JSON_TOLGEE',
   patterns: ['./src/**/*.ts?(x)'],
   extractor: './src/lib/tolgee/tolgee-extractor.mjs',
