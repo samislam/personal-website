@@ -1,31 +1,36 @@
 'use client'
 
-import { useTransition } from 'react'
-import { useLocale } from 'next-intl'
 import { Skeleton } from '../ui/skeleton'
+import { useTolgee } from '@tolgee/react'
 import { SyriaFlag } from '../icons/syria-flag'
+import { useEffect, useTransition } from 'react'
 import { AppLanguages } from '@/types/app-config'
 import { CanadaFlag } from '../icons/canada-flag'
-import { TurkieyeFlag } from '../icons/turkieye-flag'
-import { useTolgee, useTranslate } from '@tolgee/react'
-import { usePathname, useRouter } from 'next/navigation'
+import { useParams, usePathname, useRouter } from 'next/navigation'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
 
 export const LanguageSwitcher = () => {
-  const { t } = useTranslate()
   const router = useRouter()
   const pathname = usePathname()
-  const locale = useLocale()
+  // const locale = useLocale()
+  const params = useParams()
+  const locale = params.locale as string
   const { changeLanguage } = useTolgee()
   const [isSwitching, startTransition] = useTransition()
 
   const handleChange = (value: AppLanguages) => {
     startTransition(() => {
-      changeLanguage(value).then(() => {
-        router.replace(pathname.replace(locale, value))
-      })
+      // Change the server components locale
+      router.replace(pathname.replace(locale, value), { scroll: false })
     })
   }
+
+  useEffect(() => {
+    return () => {
+      // Change the client-side components locale
+      changeLanguage(locale)
+    }
+  }, [changeLanguage, locale])
 
   if (isSwitching) return <Skeleton className="h-5 w-[180px]" />
   return (
@@ -37,19 +42,13 @@ export const LanguageSwitcher = () => {
         <SelectItem value="en">
           <div className="flex items-center gap-2">
             <CanadaFlag className="h-4 w-4" />
-            <span>{t('@t<english>')} (English)</span>
+            <span>English</span>
           </div>
         </SelectItem>
         <SelectItem value="ar">
           <div className="flex items-center gap-2">
             <SyriaFlag className="h-4 w-4" />
-            {t('@t<arabic>')} (العربية)
-          </div>
-        </SelectItem>
-        <SelectItem value="tr">
-          <div className="flex items-center gap-2">
-            <TurkieyeFlag className="h-4 w-4" />
-            {t('@t<turkish>')} (Türkçe)
+            <span>العربية</span>
           </div>
         </SelectItem>
       </SelectContent>
