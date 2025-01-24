@@ -6,10 +6,10 @@ import { ThemeProvider } from 'next-themes'
 import appConfig from '@/config/app.config'
 import { getLocale } from 'next-intl/server'
 import { AppLanguages } from '@/types/app-config'
+import { NextIntlClientProvider } from 'next-intl'
 import { getTranslate } from '@/lib/tolgee/tolgee-server'
 import { getStaticData } from '@/lib/tolgee/tolgee-shared'
 import { TolgeeNextProvider } from '@/lib/tolgee/tolgee-client'
-import { NextIntlClientProvider } from 'next-intl'
 
 interface Props extends PropsWithChildren {
   params: Promise<{ locale: string }>
@@ -20,7 +20,7 @@ export default async function RootLayout(props: Props) {
   const locale = (await getLocale()) as AppLanguages
   const locales = await getStaticData([appConfig.defaultLanguage, locale])
   return (
-    <NextIntlClientProvider>
+    <NextIntlClientProvider locale={locale}>
       <TolgeeNextProvider locale={locale} locales={locales}>
         <html lang={locale} suppressHydrationWarning>
           <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
