@@ -4,18 +4,12 @@
   "private": true,
   "prettier": "@samislam/prettier-config/next",
   "scripts": {
-    "dev": "dotenv -e .env.local next dev --turbopack",
-    "build": "dotenv -e .env.production next build",
-    "start": "dotenv -e .env.production next start",
-    "format": "prettier --write \"./**/*.{htm,html,css,md,mdx,js,jsx,ts,tsx}\"",
-    "lint": "next lint",
-    "tolgee": "tolgee",
-    "locales:sync": "pnpm tolgee sync",
-    "locales:print": "pnpm tolgee extract print",
-    "locales:compare": "pnpm tolgee compare",
-    "locales:pull": "pnpm tolgee pull",
-    "locales:push": "pnpm tolgee push",
-    "clean": "del \"**/{node_modules,.next,.turbo}\""
+    "dev": "node ./scripts/dev.mjs",
+    "build": "node ./scripts/build.mjs",
+    "start": "node ./scripts/start.mjs",
+    "format": "node ./scripts/format.mjs",
+    "lint": "node ./scripts/lint.mjs",
+    "clean": "node ./scripts/clean.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -27,6 +21,8 @@
     "@radix-ui/react-toggle": "^1.1.0",
     "@radix-ui/react-toggle-group": "^1.1.0",
     "@repo/dtos": "workspace:^",
+    "@repo/react-utils": "workspace:^",
+    "@repo/scripts": "workspace:^",
     "@tolgee/format-icu": "^5.32.0",
     "@tolgee/react": "^5.31.5",
     "await-to-js": "^3.0.0",

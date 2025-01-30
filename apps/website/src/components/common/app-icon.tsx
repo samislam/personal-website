@@ -1,9 +1,9 @@
+import clsx from 'clsx'
 import Link from 'next/link'
 import Image from 'next/image'
 import React, { SVGProps } from 'react'
 import appConfig from '@/config/app.config'
 import { pageDefs } from '@/config/pages.config'
-import clsx from 'clsx'
 
 const AppIcon = (props: SVGProps<SVGSVGElement> = {}) => {
   return (

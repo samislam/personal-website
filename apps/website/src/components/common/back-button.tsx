@@ -1,6 +1,6 @@
 'use client'
-import { cn } from '@/lib/utils'
 import { Button } from '../ui/button'
+import { cn } from '@repo/react-utils'
 import { useRouter } from 'next/navigation'
 import React, { ComponentProps } from 'react'
 

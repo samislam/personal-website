@@ -4,20 +4,16 @@
   "private": true,
   "prettier": "@samislam/prettier-config/next",
   "scripts": {
-    "dev": "dotenv -e .env.local -- next dev --turbopack",
-    "build": "dotenv -e .env.production -- next build",
-    "start": "dotenv -e .env.production -- next start",
-    "format": "prettier --write \"./**/*.{htm,html,css,md,mdx,js,jsx,ts,tsx}\"",
-    "lint": "next lint",
-    "tolgee": "tolgee",
-    "locales:sync": "pnpm tolgee sync",
-    "locales:print": "pnpm tolgee extract print",
-    "locales:compare": "pnpm tolgee compare",
-    "locales:pull": "pnpm tolgee pull",
-    "locales:push": "pnpm tolgee push",
-    "clean": "del \"**/{node_modules,.next,.turbo}\""
+    "dev": "node ./scripts/dev.mjs",
+    "build": "node ./scripts/build.mjs",
+    "start": "node ./scripts/start.mjs",
+    "format": "node ./scripts/format.mjs",
+    "lint": "node ./scripts/lint.mjs",
+    "clean": "node ./scripts/clean.mjs"
   },
   "dependencies": {
+    "@repo/react-utils": "workspace:^",
+    "@repo/scripts": "workspace:^",
     "@hookform/resolvers": "^3.9.1",
     "@mdi/js": "^7.4.47",
     "@mdi/react": "^1.6.1",
