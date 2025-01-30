@@ -1,4 +1,4 @@
-import { LibraryIcon } from '@/components/common/lib-icon'
+import { LibraryIcon } from '@repo/react-utils'
 
 export interface PageDef {
   href: string

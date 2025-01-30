@@ -1,5 +1,6 @@
-import { LucIcon, LucideIcon } from '@/components/ui/luc-icon'
-import MaterialIcon, { MdiIcon } from '@/components/ui/material-icon'
+import React from 'react'
+import { LucIcon, LucideIcon } from './luc-icon'
+import MaterialIcon, { MdiIcon } from './material-icon'
 
 export type IconLibrariy = 'mdi' | 'lucide'
 export type LibraryIcon = `mdi:${MdiIcon}` | `lucide:${LucideIcon}`

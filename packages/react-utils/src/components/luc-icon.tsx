@@ -1,3 +1,4 @@
+import React from 'react'
 import * as Icons from 'lucide-react'
 import { ComponentType } from 'react'
 

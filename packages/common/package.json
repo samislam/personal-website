@@ -6,12 +6,11 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "dev": "pnpm barrel && concurrently -k --names \"BARRELS,TS\" --prefix-colors \"blue,green\" \"chokidar 'src/**/*.ts' -i 'src/index.ts' -i 'src/**/index.ts' -c 'pnpm barrel'\" \"tspc -p ./tsconfig.app.json --watch\"",
-    "build": "pnpm barrel && tspc -p ./tsconfig.app.json",
     "test": "jest",
-    "format": "prettier --write \"**/*.{ts,tsx,md,js}\"",
-    "clean": "del \"**/{node_modules,dist,.turbo}\"",
-    "barrel": "barrelsby --directory src --delete"
+    "dev": "node ./scripts/dev.mjs",
+    "clean": "node ./scripts/clean.mjs",
+    "build": "node ./scripts/build.mjs",
+    "format": "node ./scripts/format.mjs"
   },
   "author": "Islam Yamor",
   "license": "ISC",
@@ -30,6 +29,8 @@
     "typescript-transform-paths": "^3.5.2"
   },
   "dependencies": {
+    "@repo/scripts": "workspace:^",
+    "chalk": "4",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
     "typeorm": "^0.3.20"
