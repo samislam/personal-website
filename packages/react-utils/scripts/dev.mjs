@@ -4,7 +4,12 @@ import { Tailwindcss } from '@repo/scripts'
 import { Concurrently } from '@repo/scripts'
 import { runCommandsSequentially, Tspc } from '@repo/scripts'
 
-const barrelCommand = new Barrel({ directory: './src', delete: true, name: 'exports.ts' }).command
+const barrelCommand = new Barrel({
+  directory: './src',
+  delete: true,
+  name: 'exports.ts',
+  exclude: ['index.ts'],
+}).command
 
 runCommandsSequentially([
   barrelCommand,
