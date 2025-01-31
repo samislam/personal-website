@@ -9,12 +9,14 @@
     "start": "node ./scripts/start.mjs",
     "format": "node ./scripts/format.mjs",
     "lint": "node ./scripts/lint.mjs",
-    "clean": "node ./scripts/clean.mjs"
+    "clean": "node ./scripts/clean.mjs",
+    "locales": "node ./scripts/locales.mjs"
   },
   "dependencies": {
     "@repo/react-utils": "workspace:^",
     "@repo/scripts": "workspace:^",
     "@hookform/resolvers": "^3.9.1",
+    "@inquirer/prompts": "^7.2.4",
     "@mdi/js": "^7.4.47",
     "@mdi/react": "^1.6.1",
     "@radix-ui/react-label": "^2.1.0",
