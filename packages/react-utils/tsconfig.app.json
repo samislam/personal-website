@@ -6,7 +6,9 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "declarationDir": "./dist",
-    "declaration": true
+    "declaration": true,
+    "sourceMap": true,
+    "declarationMap": true
   },
   "exclude": ["tests", "node_modules"]
 }
