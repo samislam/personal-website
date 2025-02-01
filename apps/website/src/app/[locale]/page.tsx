@@ -1,5 +1,5 @@
-import { LanguageSwitcher } from '@/components/common/language-switcher'
 import { ThemeSwitcher } from '@/components/common/theme-switcher'
+import { LanguageSwitcher } from '@/components/common/language-switcher'
 
 const Page = async () => {
   return (
