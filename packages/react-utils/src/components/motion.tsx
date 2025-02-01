@@ -3,12 +3,12 @@ import * as motion from 'framer-motion/client'
 import { type MotionProps } from 'framer-motion'
 
 // Define types for different HTML elements with motion props
-type MotionDivProps = MotionProps & React.HTMLAttributes<HTMLDivElement>
-type MotionSpanProps = MotionProps & React.HTMLAttributes<HTMLSpanElement>
-type MotionH2Props = MotionProps & React.HTMLAttributes<HTMLHeadingElement>
-type MotionPProps = MotionProps & React.HTMLAttributes<HTMLParagraphElement>
-type MotionAProps = MotionProps & React.AnchorHTMLAttributes<HTMLAnchorElement>
-type MotionPathProps = MotionProps & React.SVGProps<SVGPathElement>
+export type MotionDivProps = MotionProps & React.HTMLAttributes<HTMLDivElement>
+export type MotionSpanProps = MotionProps & React.HTMLAttributes<HTMLSpanElement>
+export type MotionH2Props = MotionProps & React.HTMLAttributes<HTMLHeadingElement>
+export type MotionPProps = MotionProps & React.HTMLAttributes<HTMLParagraphElement>
+export type MotionAProps = MotionProps & React.AnchorHTMLAttributes<HTMLAnchorElement>
+export type MotionPathProps = MotionProps & React.SVGProps<SVGPathElement>
 
 // Export typed motion components
 export const MotionDiv = motion.div as React.FC<MotionDivProps>
