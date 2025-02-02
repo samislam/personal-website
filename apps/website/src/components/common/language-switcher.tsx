@@ -6,6 +6,7 @@ import { SyriaFlag } from '../icons/syria-flag'
 import { useEffect, useTransition } from 'react'
 import { AppLanguages } from '@/types/app-config'
 import { CanadaFlag } from '../icons/canada-flag'
+import { TurkieyeFlag } from '../icons/turkieye-flag'
 import { useParams, usePathname, useRouter } from 'next/navigation'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
 
@@ -29,6 +30,7 @@ export const LanguageSwitcher = () => {
     return () => {
       // Change the client-side components locale
       changeLanguage(locale)
+      document.documentElement.setAttribute('dir', locale === 'ar' ? 'rtl' : 'ltr')
     }
   }, [changeLanguage, locale])
 
@@ -43,6 +45,12 @@ export const LanguageSwitcher = () => {
           <div className="flex items-center gap-2">
             <CanadaFlag className="h-4 w-4" />
             <span>English</span>
+          </div>
+        </SelectItem>
+        <SelectItem value="tr">
+          <div className="flex items-center gap-2">
+            <TurkieyeFlag className="h-4 w-4" />
+            <span>Türkçe</span>
           </div>
         </SelectItem>
         <SelectItem value="ar">
