@@ -22,7 +22,7 @@ export default async function RootLayout(props: Props) {
   return (
     <NextIntlClientProvider locale={locale}>
       <TolgeeNextProvider locale={locale} locales={locales}>
-        <html lang={locale} suppressHydrationWarning>
+        <html dir={locale === 'ar' ? 'rtl' : 'ltr'} lang={locale} suppressHydrationWarning>
           <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
             <ThemeProvider
               attribute="class"
