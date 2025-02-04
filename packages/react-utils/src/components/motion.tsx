@@ -16,4 +16,4 @@ export const MotionSpan = motion.span as React.FC<MotionSpanProps>
 export const MotionH2 = motion.h2 as React.FC<MotionH2Props>
 export const MotionP = motion.p as React.FC<MotionPProps>
 export const MotionA = motion.a as React.FC<MotionAProps>
-export const MotionPath = motion.a as React.FC<MotionPathProps>
+export const MotionPath = motion.path as React.FC<MotionPathProps>
