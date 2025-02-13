@@ -8,6 +8,8 @@ export interface PrismaOpts {
   createOnly?: boolean
   /** Used with db push, not recommended for production (--force-reset) */
   forceReset?: boolean
+  /** Used with studio */
+  studioPort?: number
 }
 export class Prisma implements Executable {
   packageExecutable = 'prisma'
@@ -15,11 +17,13 @@ export class Prisma implements Executable {
   migrationName?: string
   createOnly?: boolean
   forceReset?: boolean
+  studioPort?: number
   constructor(opts: PrismaOpts) {
     this.mode = opts.mode
     this.migrationName = opts.migrationName
     this.createOnly = opts.createOnly
     this.forceReset = opts.forceReset
+    this.studioPort = opts.studioPort
   }
   get command() {
     return [this.packageExecutable, this.modeArg].join(' ')
@@ -34,6 +38,8 @@ export class Prisma implements Executable {
         return [`migrate dev`, this.migrationNameArg, this.createOnlyArg].join(' ')
       case 'deploy':
         return `migrate deploy`
+      case 'studio':
+        return [`studio`, this.studioPortArg].join(' ')
       default:
         return this.mode
     }
@@ -46,6 +52,9 @@ export class Prisma implements Executable {
   }
   get forceResetArg() {
     return this.forceReset ? `--force-reset` : ''
+  }
+  get studioPortArg() {
+    return this.studioPort ? `--port ${this.studioPort}` : ''
   }
 }
 

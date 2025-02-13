@@ -2,6 +2,7 @@ import chalk from 'chalk'
 import { concat } from 'concat-str'
 import { select, confirm, input } from '@inquirer/prompts'
 import { Del, Dotenv, Prisma, runCommand } from '@repo/scripts'
+import { stringToNumber } from '@repo/common'
 
 async function main() {
   // Read command-line arguments
@@ -65,10 +66,7 @@ async function main() {
         {
           name: 'Studio',
           value: 'studio',
-          description: concat(
-            'Opens a web-based interface to view and edit data',
-            '(Runs on localhost:5555 by default)'
-          ),
+          description: 'Opens a web-based interface to view and edit data',
         },
       ],
     })
@@ -76,6 +74,7 @@ async function main() {
   let forceReset = false
   let createOnly = true
   let migrationName = ''
+  let studioPort = 5555
   switch (mode) {
     case 'push':
       forceReset = await confirm({
@@ -98,6 +97,14 @@ async function main() {
         ),
       })
       migrationName = await input({ message: 'Enter migration name' })
+      break
+    case 'studio':
+      studioPort = stringToNumber(
+        await input({
+          default: studioPort.toString(),
+          message: 'Port',
+        })
+      )
   }
 
   if (mode === 'clean') {
@@ -117,6 +124,7 @@ async function main() {
         mode,
         forceReset,
         createOnly,
+        studioPort,
         migrationName,
       }).command,
     }).command
