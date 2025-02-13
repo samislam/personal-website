@@ -8,9 +8,9 @@ export type TogglableStoreWithState<T> = {
   openedItem: T | null
 }
 
-export const createTogglableWithStateStore = <T>() => {
+export const createTogglableWithStateStore = <T>(defaultState = false) => {
   return create<TogglableStoreWithState<T>>((set) => ({
-    isOpen: false,
+    isOpen: defaultState,
     open: (openedItem) => set(() => ({ isOpen: true, openedItem })),
     close: () => set(() => ({ isOpen: false })),
     toggle: () => {

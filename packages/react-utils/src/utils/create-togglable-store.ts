@@ -3,10 +3,11 @@ import { create } from 'zustand'
 export interface TogglableStore {
   open: () => void
   close: () => void
+  toggle: () => void
   isOpen: boolean
 }
 
-export const createTogglableStore = () => {
+export const createTogglableStore = (defaultState = false) => {
   return create<TogglableStore>((set) => ({
     close() {
       set({ isOpen: false })
@@ -14,6 +15,9 @@ export const createTogglableStore = () => {
     open() {
       set({ isOpen: true })
     },
-    isOpen: false,
+    toggle() {
+      set((state) => ({ isOpen: !state.isOpen }))
+    },
+    isOpen: defaultState,
   }))
 }
