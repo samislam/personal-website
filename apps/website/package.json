@@ -20,6 +20,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
     "@inquirer/prompts": "^7.2.4",
+    "@kodingdotninja/use-tailwind-breakpoint": "^1.0.0",
     "@mdi/js": "^7.4.47",
     "@mdi/react": "^1.6.1",
     "@prisma/client": "^6.3.1",
@@ -32,6 +33,7 @@
     "@repo/dtos": "workspace:^",
     "@repo/react-utils": "workspace:^",
     "@repo/scripts": "workspace:^",
+    "@tanstack/react-query": "^5.66.4",
     "@tolgee/format-icu": "^5.32.0",
     "@tolgee/react": "^5.31.5",
     "await-to-js": "^3.0.0",
