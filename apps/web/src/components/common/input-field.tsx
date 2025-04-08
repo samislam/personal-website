@@ -7,6 +7,7 @@ export interface InputFieldProps<T extends FieldValues, N extends Path<T>> {
   name: N
   label?: string
   description?: string
+  errorMessage?: string
   control?: Control<T, unknown>
   render: (field: ControllerRenderProps<T, N>) => ReactNode
 }
@@ -14,7 +15,7 @@ export interface InputFieldProps<T extends FieldValues, N extends Path<T>> {
 export const InputField = <T extends FieldValues, N extends Path<T>>(
   props: InputFieldProps<T, N>
 ) => {
-  const { control, render, description, label, name } = props
+  const { control, render, description, label, name, errorMessage } = props
   return (
     <FormField
       control={control}
@@ -24,7 +25,7 @@ export const InputField = <T extends FieldValues, N extends Path<T>>(
           <FormLabel>{label}</FormLabel>
           <FormControl>{render(field)}</FormControl>
           <FormDescription>{description}</FormDescription>
-          <FormMessage />
+          <FormMessage>{errorMessage}</FormMessage>
         </FormItem>
       )}
     />

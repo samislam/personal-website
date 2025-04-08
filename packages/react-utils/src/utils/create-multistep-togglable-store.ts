@@ -9,7 +9,7 @@ export interface MultiStepTogglableStore {
   currentStep: number
 }
 
-export const createMultiStepTogglableStore = (maxSteps: number) => {
+export const createMultiStepTogglableStore = (maxSteps: number, defaultState = false) => {
   return create<MultiStepTogglableStore>((set) => ({
     close() {
       set({ isOpen: false })
@@ -17,7 +17,7 @@ export const createMultiStepTogglableStore = (maxSteps: number) => {
     open() {
       set({ isOpen: true })
     },
-    isOpen: false,
+    isOpen: defaultState,
     nextStep: () =>
       set((state) => ({
         currentStep: Math.min(state.currentStep + 1, maxSteps - 1),

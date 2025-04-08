@@ -1,6 +1,5 @@
 import { Barrel } from '@repo/scripts'
 import { Chokidar } from '@repo/scripts'
-import { Tailwindcss } from '@repo/scripts'
 import { Concurrently } from '@repo/scripts'
 import { runCommandsSequentially, Tspc } from '@repo/scripts'
 
@@ -20,11 +19,6 @@ runCommandsSequentially([
       }).command,
       new Tspc({
         tsconfigPath: './tsconfig.app.json',
-        watch: true,
-      }).command,
-      new Tailwindcss({
-        ignore: ['./src/styles.css'],
-        outputFilePath: './dist/styles.css',
         watch: true,
       }).command,
     ],

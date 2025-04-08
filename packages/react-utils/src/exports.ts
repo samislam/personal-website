@@ -2,6 +2,7 @@
 
 export * from './components/clickable'
 export * from './components/lib-icon'
+export * from './components/loading'
 export * from './components/luc-icon'
 export * from './components/material-icon'
 export * from './components/motion'

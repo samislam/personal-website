@@ -1,43 +1,25 @@
 'use client'
 
+import { cn } from '@repo/react-utils'
 import { Skeleton } from '../ui/skeleton'
-import { useTolgee } from '@tolgee/react'
+import { useLocale } from '@/hooks/use-locale'
 import { SyriaFlag } from '../icons/syria-flag'
-import { useEffect, useTransition } from 'react'
-import { AppLanguages } from '@/types/app-config'
 import { CanadaFlag } from '../icons/canada-flag'
 import { TurkieyeFlag } from '../icons/turkieye-flag'
-import { useParams, usePathname, useRouter } from 'next/navigation'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
 
-export const LanguageSwitcher = () => {
-  const router = useRouter()
-  const pathname = usePathname()
-  // const locale = useLocale()
-  const params = useParams()
-  const locale = params.locale as string
-  const { changeLanguage } = useTolgee()
-  const [isSwitching, startTransition] = useTransition()
+export interface LanguageSwitcherProps {
+  className?: string
+  skeletonClassName?: string
+}
+export const LanguageSwitcher = (props: LanguageSwitcherProps) => {
+  const { className, skeletonClassName } = props
+  const { changeLocale, isSwitching, locale } = useLocale()
 
-  const handleChange = (value: AppLanguages) => {
-    startTransition(() => {
-      // Change the server components locale
-      router.replace(pathname.replace(locale, value), { scroll: false })
-    })
-  }
-
-  useEffect(() => {
-    return () => {
-      // Change the client-side components locale
-      changeLanguage(locale)
-      document.documentElement.setAttribute('dir', locale === 'ar' ? 'rtl' : 'ltr')
-    }
-  }, [changeLanguage, locale])
-
-  if (isSwitching) return <Skeleton className="h-5 w-[180px]" />
+  if (isSwitching) return <Skeleton className={cn('h-5 w-[180px]', skeletonClassName)} />
   return (
-    <Select value={locale} onValueChange={handleChange}>
-      <SelectTrigger className="w-[180px]">
+    <Select value={locale} onValueChange={changeLocale}>
+      <SelectTrigger className={cn('w-[180px]', className)}>
         <SelectValue placeholder="Theme" />
       </SelectTrigger>
       <SelectContent>

@@ -10,6 +10,7 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getTranslate } from '@/lib/tolgee/tolgee-server'
 import { getStaticData } from '@/lib/tolgee/tolgee-shared'
 import { TolgeeNextProvider } from '@/lib/tolgee/tolgee-client'
+import { TanstackQueryProvider } from '@/lib/tanstack-query/tanstack-query-provider'
 
 interface Props extends PropsWithChildren {
   params: Promise<{ locale: string }>
@@ -30,7 +31,7 @@ export default async function RootLayout(props: Props) {
               disableTransitionOnChange
               defaultTheme={appConfig.defaultTheme}
             >
-              {children}
+              <TanstackQueryProvider>{children}</TanstackQueryProvider>
             </ThemeProvider>
           </body>
         </html>
