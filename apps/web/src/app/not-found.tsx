@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
-import { MotionDiv, MotionSpan, MotionPath } from '@/components/common/motion'
+import { MotionDiv, MotionSpan, MotionPath } from '@repo/react-utils'
 
 export default function NotFound() {
   return (
