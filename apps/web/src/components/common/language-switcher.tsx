@@ -19,7 +19,6 @@ export const LanguageSwitcher = () => {
     changeLanguage(value)
   }
 
-  console.log(locale)
   useEffect(() => {
     document.documentElement.setAttribute('dir', locale === 'ar' ? 'rtl' : 'ltr')
   }, [locale])
