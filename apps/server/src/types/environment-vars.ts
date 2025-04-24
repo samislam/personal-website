@@ -25,6 +25,17 @@ interface UserEnvironmentVars {
   DATABASE_USERNAME: string
   /** Database password */
   DATABASE_PASSWORD: string
+  /**
+   * NODEMAILER_HOST
+   *
+   * @example
+   *   smtp.example.com
+   */
+  EMAIL_HOST: string
+  /** SMTP client username */
+  EMAIL_USERNAME: string
+  /** SMTP client password */
+  EMAIL_PASSWORD: string
 }
 interface PrivateEnvironmentVars {
   _TYPEORM_ENV: DataSourceOptions

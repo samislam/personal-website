@@ -1,5 +1,5 @@
+import { input, select } from '@inquirer/prompts'
 import { CrossEnv, runCommand, TypeORM } from '@repo/scripts'
-import { select } from '@inquirer/prompts'
 
 async function main() {
   /** @type {import('@repo/scripts').TypeORMRunMode} */
@@ -29,14 +29,21 @@ async function main() {
     ],
   })
 
+  let migrationName = ''
+  if (mode === 'migration:generate') {
+    migrationName = await input({ message: 'Migration name', required: true })
+  }
+
   runCommand(
     new CrossEnv({
       variables: {
         NODE_ENV: 'development',
       },
       execute: new TypeORM({
-        dataSrcFile: './src/server/typeorm.ts',
         mode,
+        migrationsDir: './src/migrations',
+        dataSrcFile: './src/server/typeorm.ts',
+        migrationName,
       }).command,
     }).command
   )

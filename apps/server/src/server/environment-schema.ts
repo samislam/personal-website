@@ -10,4 +10,7 @@ export default Joi.object<EnvironmentVars>({
   DATABASE_PORT: Joi.number().port().default(3306),
   DATABASE_USERNAME: Joi.string(),
   DATABASE_PASSWORD: Joi.string().optional().min(0),
+  EMAIL_HOST: Joi.string(),
+  EMAIL_USERNAME: Joi.string(),
+  EMAIL_PASSWORD: Joi.string().optional().min(0),
 })

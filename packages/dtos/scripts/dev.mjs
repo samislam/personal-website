@@ -6,7 +6,6 @@ import { runCommandsSequentially, Tspc } from '@repo/scripts'
 const barrelCommand = new Barrel({ directory: './src', delete: true }).command
 
 runCommandsSequentially([
-  barrelCommand,
   new Concurrently({
     names: ['BARRELS', 'TS'],
     prefixColors: ['blue', 'green'],
