@@ -2,6 +2,7 @@ import typeorm from './server/typeorm'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { MailerModule } from '@nestjs-modules/mailer'
 import { AuthModule } from './modules/auth/auth.module'
+import { setupNestCls } from './functions/setup-nest-cls'
 import { EnvironmentVars } from './types/environment-vars'
 import environmentSchema from '@/server/environment-schema'
 import { ConfigModule, ConfigService } from '@nestjs/config'
@@ -35,6 +36,13 @@ import { RequestPreviewMiddleware } from './middlewares/request-preview.middlewa
     //       },
     //     },
     //   }),
+    // }),
+    // ? uncomment the following lines to enable Global context (Nest-CLS) integration automatically
+    // ClsModule.forRoot({
+    //   middleware: {
+    //     mount: true,
+    //     setup: setupNestCls,
+    //   },
     // }),
   ],
   controllers: [],
