@@ -4,13 +4,14 @@ import localFont from 'next/font/local'
 import { PropsWithChildren } from 'react'
 import { ThemeProvider } from 'next-themes'
 import appConfig from '@/config/app.config'
-import { AppLanguages } from '@/types/app-config'
 import { getStaticData } from '@/lib/tolgee/tolgee-shared'
+import { getLanguage } from '@/features/get-language.action'
 import { TolgeeNextProvider } from '@/lib/tolgee/tolgee-client'
+import { TanstackQueryProvider } from '@/lib/tanstack-query/tanstack-query-provider'
 
 export default async function RootLayout({ children }: PropsWithChildren) {
-  const locale: AppLanguages = 'en' as any // # your logic to fetch the specific user locale
-  const locales = await getStaticData([locale])
+  const locale = await getLanguage() // # your logic to fetch the specific user locale
+  const locales = await getStaticData([appConfig.defaultLanguage, locale])
 
   return (
     <TolgeeNextProvider locale={locale} locales={locales}>
@@ -22,7 +23,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
             disableTransitionOnChange
             defaultTheme={appConfig.defaultTheme}
           >
-            {children}
+            <TanstackQueryProvider>{children}</TanstackQueryProvider>
           </ThemeProvider>
         </body>
       </html>
