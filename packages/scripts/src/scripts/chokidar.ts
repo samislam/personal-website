@@ -12,17 +12,17 @@ export class Chokidar implements Executable {
   exclude: string[]
   onChange: string
   constructor(opts: ChokidarOpts) {
-    this.watchDir = opts.watchDir
+    this.watchDir = `'${opts.watchDir}'`
     this.exclude = opts.exclude
     this.onChange = opts.onChange
   }
   get command(): string {
-    return [this.packageExecutable, this.watchDir, this.excludeArgs].join(' ')
+    return [this.packageExecutable, this.watchDir, this.excludeArgs, this.onChangeArg].join(' ')
   }
   get excludeArgs() {
-    return this.exclude.map((path) => `-i ${path}`).join(' ')
+    return this.exclude.map((path) => `-i \'${path}\'`).join(' ')
   }
   get onChangeArg() {
-    return `-c ${this.onChange}`
+    return `-c \'${this.onChange}\'`
   }
 }
