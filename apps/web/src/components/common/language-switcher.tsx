@@ -1,40 +1,29 @@
 'use client'
 
-import { Skeleton } from '../ui/skeleton'
 import { useTolgee } from '@tolgee/react'
+import { useEffect, useState } from 'react'
 import { SyriaFlag } from '../icons/syria-flag'
-import { useEffect, useTransition } from 'react'
 import { AppLanguages } from '@/types/app-config'
 import { CanadaFlag } from '../icons/canada-flag'
 import { TurkieyeFlag } from '../icons/turkieye-flag'
-import { useParams, usePathname, useRouter } from 'next/navigation'
+import { changeLanguage } from '@/features/change-language.action'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
 
 export const LanguageSwitcher = () => {
-  const router = useRouter()
-  const pathname = usePathname()
-  // const locale = useLocale()
-  const params = useParams()
-  const locale = params.locale as string
-  const { changeLanguage } = useTolgee()
-  const [isSwitching, startTransition] = useTransition()
+  const tolgee = useTolgee()
+  const [locale, setLocale] = useState(tolgee.getLanguage())
 
-  const handleChange = (value: AppLanguages) => {
-    startTransition(() => {
-      // Change the server components locale
-      router.replace(pathname.replace(locale, value), { scroll: false })
-    })
+  const handleChange = async (value: AppLanguages) => {
+    await tolgee.changeLanguage(value)
+    setLocale(value)
+    changeLanguage(value)
   }
 
+  console.log(locale)
   useEffect(() => {
-    return () => {
-      // Change the client-side components locale
-      changeLanguage(locale)
-      document.documentElement.setAttribute('dir', locale === 'ar' ? 'rtl' : 'ltr')
-    }
-  }, [changeLanguage, locale])
+    document.documentElement.setAttribute('dir', locale === 'ar' ? 'rtl' : 'ltr')
+  }, [locale])
 
-  if (isSwitching) return <Skeleton className="h-5 w-[180px]" />
   return (
     <Select value={locale} onValueChange={handleChange}>
       <SelectTrigger className="w-[180px]">
