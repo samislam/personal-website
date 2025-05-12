@@ -1,5 +1,5 @@
 import { from, numberToString } from '@repo/common'
-import { CreateDateColumn, Generated, PrimaryColumn } from 'typeorm'
+import { CreateDateColumn, Generated, PrimaryColumn, UpdateDateColumn } from 'typeorm'
 
 export class BaseTable {
   @Generated()
@@ -11,4 +11,7 @@ export class BaseTable {
 
   @CreateDateColumn()
   createTime: Date
+
+  @UpdateDateColumn()
+  lastUpdated: Date
 }
