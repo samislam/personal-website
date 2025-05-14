@@ -1,4 +1,3 @@
-import './globals.css'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { PropsWithChildren } from 'react'
@@ -8,6 +7,7 @@ import { getStaticData } from '@/lib/tolgee/tolgee-shared'
 import { getLanguage } from '@/features/get-language.action'
 import { TolgeeNextProvider } from '@/lib/tolgee/tolgee-client'
 import { TanstackQueryProvider } from '@/lib/tanstack-query/tanstack-query-provider'
+import './globals.css'
 
 export default async function RootLayout({ children }: PropsWithChildren) {
   const locale = await getLanguage() // # your logic to fetch the specific user locale

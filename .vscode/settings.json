@@ -12,5 +12,6 @@
     "**/dist": true,
     "**/.next": true
   },
-  "explorerExclude.backup": {}
+  "explorerExclude.backup": {},
+  "css.customData": [".vscode/tailwind.json"]
 }

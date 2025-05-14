@@ -1,4 +1,3 @@
-import './globals.css'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { PropsWithChildren } from 'react'
@@ -11,6 +10,7 @@ import { getTranslate } from '@/lib/tolgee/tolgee-server'
 import { getStaticData } from '@/lib/tolgee/tolgee-shared'
 import { TolgeeNextProvider } from '@/lib/tolgee/tolgee-client'
 import { TanstackQueryProvider } from '@/lib/tanstack-query/tanstack-query-provider'
+import './globals.css'
 
 interface Props extends PropsWithChildren {
   params: Promise<{ locale: string }>
