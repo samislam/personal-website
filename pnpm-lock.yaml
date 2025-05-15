@@ -535,6 +535,9 @@ importers:
       '@repo/scripts':
         specifier: workspace:^
         version: link:../scripts
+      axios:
+        specifier: ^1.7.8
+        version: 1.7.9
       chalk:
         specifier: '4'
         version: 4.1.2
