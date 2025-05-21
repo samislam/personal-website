@@ -36,6 +36,7 @@ async function main() {
   let removeUnused = false
   if (mode === 'sync') {
     removeUnused = await confirm({
+      default: false,
       message: 'Would you like to automatically remove the unused keys from the cloud?',
     })
   }
