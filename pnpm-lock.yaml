@@ -384,6 +384,9 @@ importers:
       tailwindcss:
         specifier: ^3.4.1
         version: 3.4.17(ts-node@10.9.2(@types/node@22.15.21)(typescript@5.8.3))
+      tsx:
+        specifier: ^4.19.2
+        version: 4.19.4
 
   apps/website:
     dependencies:
@@ -544,6 +547,9 @@ importers:
       tailwindcss:
         specifier: ^3.4.1
         version: 3.4.17(ts-node@10.9.2(@types/node@22.15.21)(typescript@5.8.3))
+      tsx:
+        specifier: ^4.19.2
+        version: 4.19.4
 
   packages/common:
     dependencies:
