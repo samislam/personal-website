@@ -4,9 +4,9 @@
   "prettier": "@samislam/prettier-config",
   "scripts": {
     "dev": "node ./scripts/dev.mjs",
-    "format": "node ./scripts/format.mjs",
+    "setup": "node ./scripts/setup.mjs",
     "clean": "node ./scripts/clean.mjs",
-    "postinstall": "node ./scripts/postinstall.mjs"
+    "format": "node ./scripts/format.mjs"
   },
   "dependencies": {
     "@repo/scripts": "workspace:^",

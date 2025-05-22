@@ -3,17 +3,17 @@
   "private": true,
   "description": "",
   "version": "1.0.0",
-  "main": "./build/index.js",
-  "types": "./build/declarations/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/declarations/index.d.ts",
   "prettier": "@samislam/prettier-config",
   "scripts": {
     "test": "jest",
+    "setup": "pnpm build",
     "barrel": "barrelsby --directory src --delete",
-    "postclean": "del \"**/{node_modules,.turbo}\"",
     "format": "prettier --write \"**/*.{ts,tsx,md,js}\"",
     "build": "pnpm barrel && tspc -p ./tsconfig.app.json",
-    "dev": "pnpm barrel && concurrently -k --names \"BARRELS,TS\" --prefix-colors \"blue,green\" \"chokidar 'src/**/*.ts' -i 'src/index.ts' -i 'src/**/index.ts' -c 'pnpm barrel'\" \"tspc -p ./tsconfig.app.json --watch\"",
-    "postinstall": "pnpm build"
+    "postclean": "del \"**/{node_modules,.turbo,pnpm-lock.yaml,dist}\"",
+    "dev": "pnpm barrel && concurrently -k --names \"BARRELS,TS\" --prefix-colors \"blue,green\" \"chokidar 'src/**/*.ts' -i 'src/index.ts' -i 'src/**/index.ts' -c 'pnpm barrel'\" \"tspc -p ./tsconfig.app.json --watch\""
   },
   "author": "Islam Yamor",
   "license": "ISC",

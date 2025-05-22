@@ -1,10 +1,9 @@
-import typeorm from './server/typeorm'
-import { TypeOrmModule } from '@nestjs/typeorm'
 import { MailerModule } from '@nestjs-modules/mailer'
 import { AuthModule } from './modules/auth/auth.module'
 import { setupNestCls } from './functions/setup-nest-cls'
 import { EnvironmentVars } from './types/environment-vars'
 import environmentSchema from '@/server/environment-schema'
+import { DatabaseModule } from './database/database.module'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common'
 import { RequestUserMiddleware } from './middlewares/request-user.middleware'
@@ -14,16 +13,13 @@ import { RequestPreviewMiddleware } from './middlewares/request-preview.middlewa
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [typeorm],
+      load: [],
       validationSchema: environmentSchema,
       envFilePath: `.env.${process.env.NODE_ENV}`,
     }),
     AuthModule,
     // ? uncomment the following lines to enable database integration automatically
-    // TypeOrmModule.forRootAsync({
-    //   inject: [ConfigService],
-    //   useFactory: (config: ConfigService<EnvironmentVars>) => config.getOrThrow('_TYPEORM_ENV'),
-    // }),
+    // DatabaseModule,
     // ? uncomment the following lines to enable nodemailer integration automatically
     // MailerModule.forRootAsync({
     //   inject: [ConfigService],
