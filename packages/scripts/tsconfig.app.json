@@ -4,10 +4,10 @@
   "include": ["./src/**/*.ts"],
   "compilerOptions": {
     "rootDir": "./src",
-    "outDir": "./build",
-    "declarationDir": "./build/declarations",
+    "outDir": "./dist",
+    "declarationDir": "./dist/declarations",
     "sourceMap": true,
-    "incremental": true
+    "incremental": false
   },
   "exclude": ["tests", "node_modules"]
 }
