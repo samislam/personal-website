@@ -10,7 +10,7 @@
     "test": "jest",
     "setup": "pnpm build",
     "barrel": "barrelsby --directory src --delete",
-    "format": "prettier --write \"**/*.{ts,tsx,md,js}\" --ignore ./src/index.ts",
+    "format": "prettier --write \"**/*.{ts,tsx,md,js}\" !./src/index.ts",
     "build": "pnpm barrel && tspc -p ./tsconfig.app.json",
     "postclean": "del \"**/{node_modules,.turbo,pnpm-lock.yaml,dist}\"",
     "dev": "pnpm barrel && concurrently -k --names \"BARRELS,TS\" --prefix-colors \"blue,green\" \"chokidar 'src/**/*.ts' -i 'src/index.ts' -i 'src/**/index.ts' -c 'pnpm barrel'\" \"tspc -p ./tsconfig.app.json --watch\""
