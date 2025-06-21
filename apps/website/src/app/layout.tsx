@@ -54,7 +54,46 @@ const geistMono = localFont({
 export const generateMetadata = async (): Promise<Metadata> => {
   const t = await getTranslate()
   return {
-    title: t('@t<title_homepage>'),
-    description: t('@t<description_homepage>'),
+    title: 'Your Name - Full-Stack Developer & UI/UX Designer',
+    description:
+      'Portfolio of a passionate full-stack developer specializing in modern web applications, beautiful user interfaces, and scalable solutions.',
+    keywords:
+      'web developer, full-stack developer, UI/UX designer, React, Next.js, TypeScript, portfolio',
+    authors: [{ name: 'Your Name' }],
+    creator: 'Your Name',
+    openGraph: {
+      type: 'website',
+      locale: 'en_US',
+      url: 'https://yourname.com',
+      title: 'Your Name - Full-Stack Developer',
+      description: 'Portfolio showcasing modern web development projects and expertise',
+      siteName: 'Your Name Portfolio',
+      images: [
+        {
+          url: '/og-image.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'Your Name - Full-Stack Developer Portfolio',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Your Name - Full-Stack Developer',
+      description: 'Portfolio showcasing modern web development projects and expertise',
+      creator: '@yourusername',
+      images: ['/og-image.jpg'],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
   }
 }

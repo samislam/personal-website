@@ -2,7 +2,7 @@
 module.exports = {
   apps: [
     {
-      name: "nexst",
+      name: "islam-website",
       script: "pnpm",
       args: "start",
       instances: 1,

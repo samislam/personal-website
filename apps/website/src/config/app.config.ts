@@ -3,10 +3,10 @@ import { createAppConfig } from '@/types/app-config'
 import logo from '@/media/logo.png'
 
 export default createAppConfig({
-  languages: ['en', 'ar', 'tr'],
+  languages: ['en', 'ar', 'tr', 'de'],
   defaultLanguage: 'en',
   defaultTheme: 'light',
-  appName: 'Nexst website template',
+  appName: 'Islam Yamor Website',
   appLogo: logo,
-  appDescription: concat('@Nexst template website'),
+  appDescription: concat('@Islam Yamor website'),
 })
