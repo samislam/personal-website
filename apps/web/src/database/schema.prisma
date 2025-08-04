@@ -14,8 +14,78 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Example {
-  id    String  @id @default(auto()) @map("_id") @db.ObjectId
-  email String  @unique
-  name  String?
+model NewsletterSubscriber {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  email      String   @unique
+  name       String?
+  createTime DateTime @default(now())
+
+  @@map("newsletter-subscribers")
+}
+
+model Message {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  fullName   String?
+  email      String
+  message    String
+  createTime DateTime @default(now())
+
+  @@map("messages")
+}
+
+model Project {
+  id              String       @id @default(auto()) @map("_id") @db.ObjectId
+  slug            String       @unique
+  title           String
+  description     String
+  longDescription String
+  image           String
+  gallery         String[]
+  tags            String[]
+  demoUrl         String?
+  githubUrl       String?
+  featured        Boolean?
+  techStack       TechStack
+  features        String[]
+  githubStats     GithubStats?
+  status          String
+  date            String
+  createTime      DateTime     @default(now())
+}
+
+type TechStack {
+  frontend   String[]
+  backend    String[]
+  deployment String[]
+  tools      String[]
+}
+
+type GithubStats {
+  stars        Int
+  forks        Int
+  commits      Int
+  contributors Int
+}
+
+model Company {
+  id     String  @id @default(auto()) @map("_id") @db.ObjectId
+  name   String
+  logo   String
+  role   String?
+  period String?
+
+  @@map("companies")
+}
+
+model Package {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  description String
+  version     String
+  downloads   String
+  tags        String[]
+  npmUrl      String
+  githubUrl   String
+
+  @@map("packages")
 }
