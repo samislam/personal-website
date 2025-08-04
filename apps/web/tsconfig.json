@@ -1,0 +1,13 @@
+{
+  "extends": "@repo/typescript-config/react.tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "plugins": [{ "name": "next" }],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@@/*": ["./src/app/[locale]/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}
