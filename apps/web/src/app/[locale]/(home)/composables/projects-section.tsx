@@ -1,6 +1,7 @@
 import { ProjectCard } from './project-card'
 import { PackageCard } from './package-card'
 import { packagesData } from '@/data/packages'
+import { pageDefs } from '@/config/pages.config'
 import { getTranslate } from '@/lib/tolgee/tolgee-server'
 import { projectsPreviewData } from '@/data/projects-preview'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
@@ -8,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 export const ProjectsSection = async () => {
   const t = await getTranslate()
   return (
-    <section className="bg-white/70 px-6 py-20">
+    <section id={pageDefs.home.sections.projects} className="bg-white/70 px-6 py-20">
       <div className="mx-auto max-w-6xl">
         <div className="mb-12 text-center">
           <h2 className="mb-4 text-4xl font-bold text-gray-900">

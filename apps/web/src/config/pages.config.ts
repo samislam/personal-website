@@ -7,6 +7,10 @@ export const pageDefs = {
     href: '/',
     title: '@t<home-title>',
     description: '@t<home-description>',
+    sections: {
+      contact: 'contact',
+      projects: 'projects',
+    },
     icon: 'mdi:mdiHome',
     async meta(): Promise<Metadata> {
       const t = await getTranslate()

@@ -1,5 +1,6 @@
 import React from 'react'
 import { ContactForm } from './contact-form'
+import { pageDefs } from '@/config/pages.config'
 import { getTranslate } from '@/lib/tolgee/tolgee-server'
 import { ContactInfoSubsection } from './contact-info-subsection'
 import { ContactSocialSubsection } from './contact-social-subsection'
@@ -7,7 +8,7 @@ import { ContactSocialSubsection } from './contact-social-subsection'
 export const ContactSection = async () => {
   const t = await getTranslate()
   return (
-    <section className="px-6 py-20">
+    <section id={pageDefs.home.sections.contact} className="px-6 py-20">
       <div className="mx-auto max-w-4xl">
         <div className="mb-12 text-center">
           <h2 className="mb-4 text-4xl font-bold text-gray-900">

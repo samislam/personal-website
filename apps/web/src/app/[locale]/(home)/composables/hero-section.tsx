@@ -1,9 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
 import { Badge } from '@/components/ui/badge'
+import { ScrollLink } from '@repo/react-utils'
 import { Button } from '@/components/ui/button'
-import PersonalPhoto from '@/media/personal-photo-01.jpeg'
+import { pageDefs } from '@/config/pages.config'
 import { getTranslate } from '@/lib/tolgee/tolgee-server'
+import PersonalPhoto from '@/media/personal-photo-01.jpeg'
 import { ArrowRightIcon, CodeIcon, PaletteIcon, ZapIcon } from 'lucide-react'
 
 export const HeroSection = async () => {
@@ -25,13 +27,17 @@ export const HeroSection = async () => {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="btn-primary px-8 shadow-lg">
-                {t('@t<hero-section-primary-button>')}
-                <ArrowRightIcon className="ml-2 h-4 w-4" />
-              </Button>
-              <Button variant="outline" size="lg" className="px-8">
-                {t('@t<hero-section-secondary-button>')}
-              </Button>
+              <ScrollLink hash={pageDefs.home.sections.projects}>
+                <Button size="lg" className="btn-primary px-8 shadow-lg">
+                  {t('@t<hero-section-primary-button>')}
+                  <ArrowRightIcon className="ml-2 h-4 w-4" />
+                </Button>
+              </ScrollLink>
+              <ScrollLink hash={pageDefs.home.sections.contact}>
+                <Button variant="outline" size="lg" className="px-8">
+                  {t('@t<hero-section-secondary-button>')}
+                </Button>
+              </ScrollLink>
             </div>
 
             <div className="grid grid-cols-3 gap-8 pt-8">
