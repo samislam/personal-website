@@ -7,6 +7,11 @@ type NextIntlRequestConfig = Pick<RequestConfig, 'formats' | 'timeZone' | 'now'>
 
 export interface AppConfig<L extends string> {
   appName: string
+  authorName: string
+  authorEmail: string
+  authorPhone: string
+  authorWhatsappNumber: string
+  authorGithubUrl: string
   appDescription: string
   defaultTheme: AppThemes
   enableMaintenanceMode?: boolean

@@ -6,6 +6,11 @@ import { createAppConfig } from '@/utils/create-app-config'
 
 export default createAppConfig({
   appLogo: logo,
+  authorName: 'Islam Yamor',
+  authorEmail: 'islamyamorz@gmail.com',
+  authorPhone: '+90 553 441 6608',
+  authorWhatsappNumber: '+90 553 441 6608',
+  authorGithubUrl: 'https://github.com/samislam',
   defaultTheme: 'light',
   defaultLanguage: 'en',
   fallbackLanguage: 'en',

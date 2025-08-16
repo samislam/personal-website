@@ -1,10 +1,11 @@
 import React from 'react'
+import appConfig from '@/config/app.config'
 import { Button } from '@/components/ui/button'
 import { SocialIcon } from 'react-social-icons'
+import { FooterLastLine } from './footer-last-line'
 import { Separator } from '@/components/ui/separator'
 import { getTranslate } from '@/lib/tolgee/tolgee-server'
 import { MailIcon, MessageCircleIcon, PhoneIcon } from 'lucide-react'
-import { FooterLastLine } from './footer-last-line'
 
 export const Footer = async () => {
   const t = await getTranslate()
@@ -30,15 +31,15 @@ export const Footer = async () => {
             <div className="space-y-2 text-gray-400">
               <div className="flex items-center gap-2">
                 <MailIcon className="h-4 w-4" />
-                hello@yourname.com
+                {appConfig.authorEmail}
               </div>
               <div className="flex items-center gap-2">
                 <PhoneIcon className="h-4 w-4" />
-                +1 (555) 123-4567
+                {appConfig.authorPhone}
               </div>
               <div className="flex items-center gap-2">
                 <MessageCircleIcon className="h-4 w-4" />
-                WhatsApp
+                WhatsApp: {appConfig.authorPhone}
               </div>
             </div>
           </div>
@@ -54,21 +55,7 @@ export const Footer = async () => {
               size="icon"
               className="text-gray-400 hover:bg-gray-800 hover:text-white"
             >
-              <SocialIcon network="github" className="h-4 w-4" />
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-gray-400 hover:bg-gray-800 hover:text-white"
-            >
-              <SocialIcon network="twitter" className="h-4 w-4" />
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-gray-400 hover:bg-gray-800 hover:text-white"
-            >
-              <SocialIcon network="linkedin" className="h-4 w-4" />
+              <SocialIcon network="github" href={appConfig.authorGithubUrl} className="h-4 w-4" />
             </Button>
           </div>
         </div>
