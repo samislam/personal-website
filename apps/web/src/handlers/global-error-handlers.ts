@@ -3,7 +3,7 @@ import { AppErrorCodes, UNKNOWN_ERR } from '@/constants'
 import { apiFailureResult, apiResult, FailureResult, SyncErrorHandler } from '@repo/common'
 
 export const logError = (error: unknown) => {
-  let logMessage = error instanceof Error ? error.message : null
+  const logMessage = error instanceof Error ? error.message : null
   console.error('Unexpected error happened!', logMessage ?? error)
   return logMessage
 }
